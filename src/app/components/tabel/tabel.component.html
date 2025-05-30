@@ -1,0 +1,68 @@
+<nz-table #basicTable [nzData]="rows" [nzPageSize]="8">
+  <thead>
+    <tr>
+      <th>Nume</th>
+      <th>Prenume</th>
+      <th>Email</th>
+      <th>Vârstă</th>
+      <th>Oraș</th>
+      <th>Acțiuni</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of basicTable.data">
+      <td>{{ row.nume }}</td>
+      <td>{{ row.prenume }}</td>
+      <td>{{ row.email }}</td>
+      <td>{{ row.varsta }}</td>
+      <td [innerHTML]="row.oras | highlightText"></td>
+      <td>
+        <button nz-button nzType="link" (click)="editRow(row)">
+          <span nz-icon nzType="edit"></span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Adauga date" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+      <ng-container *nzModalContent>
+        <form [formGroup]="form">
+          <div class="form-group">
+            <label for="nume" class="inline-label">Nume</label>
+            <input id="nume" formControlName="nume" nz-input placeholder="Adauga nume"/>
+            <div *ngIf="form.get('nume')!.invalid && form.get('nume')!.touched" class="error-inline">
+              Numele este obligatoriu.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="prenume">Prenume</label>
+            <input id="prenume" formControlName="prenume" nz-input placeholder="Adauga prenume" />
+            <div *ngIf="form.get('prenume')!.invalid && form.get('prenume')!.touched" class="error-inline">
+              Prenumele este obligatoriu.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" formControlName="email" nz-input placeholder="Adauga email" />
+            <div *ngIf="form.get('email')!.invalid && form.get('email')!.touched" class="error-inline">
+                Emailul este invalid.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="varsta">Varsta</label>
+            <input id="varsta" formControlName="varsta" nz-input placeholder="Adauga varsta" />
+            <div *ngIf="form.get('varsta')!.invalid && form.get('varsta')!.touched" class="error-inline">
+              Varsta este invalida.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="oras">Oras</label>
+            <input id="oras" formControlName="oras" nz-input placeholder="Adauga oras" />
+            <div *ngIf="form.get('oras')!.invalid && form.get('oras')!.touched" class="error-inline">
+              Orasul este obligatoriu.
+            </div>
+          </div>
+        </form>
+      </ng-container>
+</nz-modal>

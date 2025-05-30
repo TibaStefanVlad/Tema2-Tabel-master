@@ -1,0 +1,78 @@
+:host ::ng-deep .ant-table {
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  overflow: hidden;
+  background: #fff;
+}
+
+:host ::ng-deep .ant-table-thead > tr > th {
+  background: #f0f5ff;
+  color: #1d39c4;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+}
+
+:host ::ng-deep .ant-table-tbody > tr > td {
+  text-align: center;
+  font-size: 15px;
+  padding: 12px 8px;
+}
+
+:host ::ng-deep .ant-table-tbody > tr:hover > td {
+  background: #e6f7ff;
+  transition: background 0.2s;
+}
+
+:host ::ng-deep button[nz-button] {
+  color: #1890ff;
+  border: none;
+  background: transparent;
+  transition: color 0.2s;
+}
+
+:host ::ng-deep button[nz-button]:hover {
+  color: #52c41a;
+}
+
+:host ::ng-deep .anticon-edit {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.btn {
+    margin-right: 8px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.inline-label {
+  min-width: 60px;
+  font-weight: 500;
+}
+
+.inline-input {
+  flex: 1;
+  min-width: 180px;
+}
+
+.error-inline {
+  color: #ff4d4f;
+  font-size: 0.9em;
+  margin-left: 10px;
+}
